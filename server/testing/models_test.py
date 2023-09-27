@@ -93,6 +93,8 @@ class TestPost:
         with app.app_context():
             content_string = "This is content" * 150
             summary_string = "T" * 250
+            print(f"Summary string length: {len(summary_string)}")
+            print(f"Content string length: {len(content_string)}")
             with pytest.raises(ValueError):
                 post = Post(title='Secret, Why I love programming.', content=content_string, summary= summary_string, category='Non-Fiction')
                 db.session.add(post)
